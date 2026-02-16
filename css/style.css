@@ -1,0 +1,249 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: #f4f6f9;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* ===== Header ===== */
+header {
+    margin-bottom: 1.5rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* ===== Controls ===== */
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.control-group label {
+    font-weight: 600;
+}
+
+.control-group input[type="number"] {
+    width: 3.5rem;
+    padding: 0.3rem 0.4rem;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.hint {
+    font-size: 0.85rem;
+    color: #555;
+    font-style: italic;
+}
+
+button {
+    padding: 0.45rem 1rem;
+    border: 1px solid #888;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.15s;
+}
+
+button:hover {
+    background: #e8e8e8;
+}
+
+button.primary {
+    background: #3b82f6;
+    color: #fff;
+    border-color: #2563eb;
+    font-weight: 600;
+}
+
+button.primary:hover {
+    background: #2563eb;
+}
+
+/* ===== Grid ===== */
+#grid-container {
+    margin-bottom: 1.5rem;
+}
+
+.grid {
+    display: inline-grid;
+    gap: 0;
+    border: 2px solid #333;
+}
+
+.cell {
+    width: 44px;
+    height: 44px;
+    border: 1px solid #999;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.1s;
+}
+
+.cell.shaded {
+    background: #b0b0b0;
+}
+
+.cell.unshaded {
+    background: #fff;
+}
+
+/* ===== Loop Path Drawing ===== */
+.cell .path {
+    position: absolute;
+    background: #2563eb;
+    border-radius: 2px;
+}
+
+/* Horizontal segment — full width, centered vertically */
+.cell .path.h {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    transform: translateY(-50%);
+}
+
+/* Vertical segment — full height, centered horizontally */
+.cell .path.v {
+    left: 50%;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    transform: translateX(-50%);
+}
+
+/* Half-segments for corners (up/down/left/right reaching center) */
+.cell .path.up {
+    left: 50%;
+    top: 0;
+    width: 6px;
+    height: 50%;
+    transform: translateX(-50%);
+}
+
+.cell .path.down {
+    left: 50%;
+    top: 50%;
+    width: 6px;
+    height: 50%;
+    transform: translateX(-50%);
+}
+
+.cell .path.left {
+    top: 50%;
+    left: 0;
+    width: 50%;
+    height: 6px;
+    transform: translateY(-50%);
+}
+
+.cell .path.right {
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 6px;
+    transform: translateY(-50%);
+}
+
+/* Center dot where two half-segments meet */
+.cell .path.center {
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+/* ===== Status ===== */
+#status {
+    margin-bottom: 1.5rem;
+    min-height: 1.5em;
+}
+
+#status-text {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+#status-text.success {
+    color: #16a34a;
+}
+
+#status-text.error {
+    color: #dc2626;
+}
+
+#status-text.working {
+    color: #d97706;
+}
+
+/* ===== Rules ===== */
+#rules {
+    max-width: 480px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#rules h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+#rules ul {
+    padding-left: 1.2rem;
+}
+
+#rules li {
+    margin-bottom: 0.3rem;
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+/* ===== Footer ===== */
+footer {
+    margin-top: auto;
+    padding: 1rem;
+    font-size: 0.82rem;
+    color: #777;
+}
+
+footer a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
