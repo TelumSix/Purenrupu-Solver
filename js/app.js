@@ -9,7 +9,7 @@
 // State
 // ---------------------------------------------------------------------------
 
-/** @type {number} */ let numRows = 5;
+/** @type {number} */ let numRows = 6;
 /** @type {number} */ let numCols = 5;
 
 /**
@@ -194,3 +194,4 @@ btnReset.addEventListener('click', resetGrid);
 // ---------------------------------------------------------------------------
 
 createGrid();
+
